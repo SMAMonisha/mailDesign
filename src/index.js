@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import EmailDetails from './Components/EmailDetails';
+import 'semantic-ui-css/semantic.min.css';
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import SidebarExampleVisible from "./Components/Sidebar";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Navbar/>
+     <SidebarExampleVisible/>
+    <div>
+      <Route path="/" exact component={App}/>
+      <Route path='/email' exact={true} component={EmailDetails}/>
+    </div>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
